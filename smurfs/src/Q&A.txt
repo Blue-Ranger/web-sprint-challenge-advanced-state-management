@@ -1,0 +1,31 @@
+1. What problem does the context API help solve?
+git
+   A. The Context API was created to solve a specific problem in react, sharing state down a component tree. Similar to the solution that Redux and React-Redux libraries solve, this solution prevents prop drilling
+
+1. In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+   A. Action: It carries a payload of information from your application to store.
+
+   A Reducer: is a function that determines changes to an application’s state.It uses the action it receives to determine this change.
+   Reducers calculate a new state given the previous state and an action. They must be pure functions—functions that return the exact same output for given inputs.
+
+   Store: A store is an object that holds the application's state tree. There should only be a single store in a Redux app, as the composition happens on the reducer level.
+
+   *dispatch(action) -- is the base dispatch function described above.
+   *getState() -- returns the current state of the store.
+   *subscribe(listener) -- registers a function to be called on state changes.
+   *replaceReducer(nextReducer) -- can be used to implement hot reloading and code splitting. Most likely you won't use it.
+
+1. What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+   A. Application: state is global, and your component state is local. Redux uses what they call "stores" to hold application state. That means any component, anywhere in the app can access it (kind of like a database) so long as they hook into it.
+   Component State: however, lives within that specific component. As such, it can only be updated within that component and passed down to its children via props.
+
+1. Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+   A.
+   Redux Thunk is a middleware that lets you call action creators that return a function instead of an action object. That function receives the store's dispatch method, which is then used to dispatch regular synchronous actions inside the body of the function once the asynchronous operations have completed
+
+1. What is your favorite state management system you've learned and this sprint? Please explain why!
+
+   A. I have no Favorites.
